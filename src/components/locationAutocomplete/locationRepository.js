@@ -1,22 +1,21 @@
-class LocationRepository {
-  constructor() {
-    this.url = 'https://api.opencagedata.com/geocode/v1/json';
-    this.apiKey = '59be21d464b7488da4f4564720db96ae';
-  }
+const url = 'https://api.opencagedata.com/geocode/v1/json';
+const apiKey = '59be21d464b7488da4f4564720db96ae';
 
-  async getLocationFromName({ name }) {
-    const response = await fetch(`${this.url}?q=${name}&key=${this.apiKey}`);
-    const data = await response.json();
+const getLocationFromName = async ({ name }) => {
+  const response = await fetch(`${url}?q=${name}&key=${apiKey}`);
+  const data = await response.json();
 
-    if (data.results.length === 0) {
-      return [];
-    }
-    return data.results.map(({ formatted, geometry }) => ({
-      ...geometry,
-      name: formatted
-    }))
-    ;
+  if (data.results.length === 0) {
+    return [];
   }
+  return data.results.map(({ formatted, geometry }) => ({
+    ...geometry,
+    name: formatted
+  }))
+  ;
+}
+const locationRepository = {
+  getLocationFromName,
 }
 
-export default LocationRepository;
+export default locationRepository;

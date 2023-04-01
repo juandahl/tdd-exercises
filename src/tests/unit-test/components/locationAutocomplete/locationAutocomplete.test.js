@@ -1,6 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import LocationAutocomplete from './locationAutocomplete';
+import LocationAutocomplete from '../../../../components/locationAutocomplete/locationAutocomplete';
 
 describe('Location Autocomplete component', () => {
   beforeEach(() => cleanup())

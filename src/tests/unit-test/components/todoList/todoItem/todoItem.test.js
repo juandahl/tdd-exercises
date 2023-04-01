@@ -1,5 +1,5 @@
 import { render, screen, cleanup, fireEvent } from '@testing-library/react';
-import TodoItem from './todoItem';
+import TodoItem from '../../../../../components/todoList/todoItem/todoItem';
 
 const name = 'TODO item 1';
 const handleChange = jest.fn();

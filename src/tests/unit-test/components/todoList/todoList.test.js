@@ -1,5 +1,5 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import TodoList from './todoList';
+import TodoList from '../../../../components/todoList/todoList';
 
 describe('TODO LIST', () => {
   beforeEach(() => cleanup())

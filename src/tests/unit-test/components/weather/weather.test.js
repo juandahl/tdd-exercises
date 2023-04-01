@@ -1,9 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import Weather from './weather';
-import LocationRepository from '../locationAutocomplete/locationRepository';
+import Weather from '../../../../components/weather/weather';
 import userEvent from '@testing-library/user-event';
-
-jest.mock("../locationAutocomplete/locationRepository");
 
 const mockGet = {
   main: "Rain",
@@ -20,12 +17,13 @@ describe('Weather component', () => {
       getWeather: jest.fn().mockResolvedValue(mockGet)
     }
 
-    const locationRepository = new LocationRepository();
-    locationRepository.getLocationFromName.mockResolvedValue([{
-      name: 'London',
-      latitude: 0,
-      longitude: 0,
-    }]);
+    const locationRepository = {
+      getLocationFromName: jest.fn().mockResolvedValue([{
+        name: 'London',
+        latitude: 0,
+        longitude: 0,
+      }]),
+    };
 
     render(
       <Weather
@@ -50,12 +48,13 @@ describe('Weather component', () => {
       getWeather: jest.fn().mockResolvedValue(mockGet)
     }
 
-    const locationRepository = new LocationRepository();
-    locationRepository.getLocationFromName.mockResolvedValue([{
-      name: 'London',
-      latitude: 0,
-      longitude: 0,
-    }]);
+    const locationRepository = {
+      getLocationFromName: jest.fn().mockResolvedValue([{
+        name: 'London',
+        latitude: 0,
+        longitude: 0,
+      }]),
+    };
 
     render(
       <Weather

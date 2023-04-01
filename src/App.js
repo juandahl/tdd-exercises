@@ -3,10 +3,8 @@ import './App.css';
 // Components
 import Weather from './components/weather/weather';
 // Repositories
-import LocationRepository from './components/locationAutocomplete/locationRepository';
+import locationRepository from './components/locationAutocomplete/locationRepository';
 import weatherRepository from './components/weather/weatherRepository';
-
-const locationRepository = new LocationRepository();
 
 function App() {
   return (
